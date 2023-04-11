@@ -155,3 +155,13 @@ async function SnapTheFinger() {
 //   promptUser,
 //   getProjectDir,
 // };
+
+module.exports = {
+  getAllModules,
+  getUnusedModules,
+  deleteUnusedModules,
+  promptUser,
+  getProjectDir,
+};
+
+module.exports.SnapTheFinger = SnapTheFinger;
