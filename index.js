@@ -144,14 +144,14 @@ async function SnapTheFinger() {
   await deleteUnusedModules(projectDir, unusedModules);
 }
 
-SnapTheFinger();
+// SnapTheFinger();
 
 
-module.exports = {
-  SnapTheFinger,
-  getAllModules,
-  getUnusedModules,
-  deleteUnusedModules,
-  promptUser,
-  getProjectDir,
-};
+// module.exports = {
+//   SnapTheFinger,
+//   getAllModules,
+//   getUnusedModules,
+//   deleteUnusedModules,
+//   promptUser,
+//   getProjectDir,
+// };
