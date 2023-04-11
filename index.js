@@ -90,39 +90,7 @@ async function deleteUnusedModules(projectDir, unusedModules) {
   }
 }
 
-// function promptUser(unusedModules) {
-//   const rl = readline.createInterface({
-//     input: process.stdin,
-//     output: process.stdout,
-//   });
 
-//   return new Promise((resolve) => {
-//     rl.question(
-//       `Unused modules detected:\n${unusedModules
-//         .map((module) => `- ${module}`)
-//         .join("\n")}\nDo you want to retain any modules? (y/n) `,
-//       (answer) => {
-//         if (answer.toLowerCase() === "y") {
-//           rl.question(
-//             "Type the names of the modules you would like to retain, separated by commas, or type 'exit' to cancel, or 'all': ",
-//             (moduleAnswer) => {
-//               if (moduleAnswer.toLowerCase() === "exit") {
-//                 resolve([]);
-//               } else {
-//                 const modulesToRetain = moduleAnswer.split(",");
-//                 resolve(modulesToRetain.map((module) => module.trim()));
-//               }
-//               rl.close();
-//             }
-//           );
-//         } else {
-//           resolve([]);
-//           rl.close();
-//         }
-//       }
-//     );
-//   });
-// }
 
 // Project combination
 
@@ -177,3 +145,13 @@ async function SnapTheFinger() {
 }
 
 SnapTheFinger();
+
+
+module.exports = {
+  SnapTheFinger,
+  getAllModules,
+  getUnusedModules,
+  deleteUnusedModules,
+  promptUser,
+  getProjectDir,
+};
