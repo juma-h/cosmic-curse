@@ -12,14 +12,16 @@ cosmic- curse, a better and improved package of [death-node](https://www.npmjs.c
 To use cosmic-curse, you need to have Node.js and npm installed on your system. You can then install cosmic-curse using the following command:
 
 ```bash
+
 npm install cosmic-curse
 
 ```
 
 ## Usage
 
-First thing is to install depcheck. [is is a required dependency]. 
+First thing is to install depcheck. [it is a required dependency]. 
 You can try installing the depcheck module in your project using npm by running the command : 
+
 > npm install depcheck
 
 
@@ -35,7 +37,7 @@ myModule.SnapTheFinger();
 
 
 ```
-3. Run the file , [make sure you are in the correct path , where your file is, ]
+3. Run the file , [make sure you are in the correct path , where your file is ]
 
 > node fileTest.js
 
