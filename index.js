@@ -3,15 +3,16 @@ const dependencyTree = require("dependency-tree");
 const depcheck = require("depcheck");
 const readline = require("readline");
 const rimraf = require("rimraf");
-const { exec } = require("child_process");
-
-
-
+const util = require('util');
+const { spawn } = require('child_process');
+const { exec } = require('child_process');
+const fs = require('fs');
 
 //get project dir
 const getProjectDir = () => {
   const path = require("path");
   const cwd = process.cwd();
+  console.log("Working directory:: " + cwd)
   
   return path.resolve(cwd);
 
@@ -46,52 +47,52 @@ const getUnusedModules = async (projectDir) => {
   const { dependencies, devDependencies } = await depcheck(projectDir, options);
   const modules = [...dependencies, ...devDependencies];
 
-  //   console.log(`Unused modules :: ${modules}`);
+  console.log(`Unused modules :: ${modules}`);
   return modules;
 };
 
 // Delete unused
+
 async function deleteUnusedModules(projectDir, unusedModules) {
- 
-  
+
+  // const execa = await import('execa');
+  // const fs = require('fs-extra');
+
   // Prompt the user to select which modules to retain
   const answer = await promptUser(unusedModules);
 
-  if (typeof answer === 'string' && (answer.toLowerCase() === "n" || answer.toLowerCase() === "all")) {
+  if (typeof answer === "string" && (answer.toLowerCase() === "n" || answer.toLowerCase() === "all")) {
     console.log("No modules deleted.");
     return;
   }
-  
 
-  const modulesToRetain = await promptUser(unusedModules);
+  const modulesToRetain = answer === "y" ? [] : answer;
 
   console.log("Modules to retain :: " + modulesToRetain);
 
   // Uninstall and delete the unused modules
   for (const module of unusedModules) {
     if (!modulesToRetain.includes(module)) {
-      const modulePath = path.join(projectDir, "node_modules", module);
-      // Uninstall the module with npm uninstall
-      exec(
-        `npm uninstall ${module}`,
-        { cwd: projectDir },
-        (error, stdout, stderr) => {
-          if (error) {
-            console.error(`Error uninstalling ${module}: ${error.message}`);
-          } else {
-            console.log(`Uninstalled ${module}`);
-          }
+        const modulePath = path.join(projectDir, "node_modules", module);
+        // Uninstall the module with npm uninstall
+        try {
+          await new Promise((resolve, reject) => {
+            exec(`npm uninstall ${module}`, { cwd: projectDir }, (error, stdout, stderr) => {
+              if (error) {
+                console.error(`Error uninstalling ${module}: ${error.message}`);
+                reject(error);
+              } else {
+                console.log(`Uninstalled ${module}`);
+                resolve();
+              }
+            });
+          });
+        } catch (error) {
+          console.error(`Error uninstalling ${module}: ${error.message}`);
         }
-      );
-      // Delete the module directory with rimraf
-      rimraf.sync(modulePath);
-      console.log("Deleted :: " + modulePath);
     }
-  }
 }
-
-
-
+}
 // Project combination
 
 function promptUser(unusedModules) {
@@ -129,14 +130,14 @@ function promptUser(unusedModules) {
         }
       );
     });
-  }
+}
   
 
 async function SnapTheFinger() {
   // The second arg
   const projectDir = getProjectDir();
   if (!projectDir) {
-    console.error("Error: Project directory not specified.");
+    console.error("Error: Project directory not found.");
     return;
   }
   const allModules = getAllModules(projectDir);
@@ -144,17 +145,7 @@ async function SnapTheFinger() {
   await deleteUnusedModules(projectDir, unusedModules);
 }
 
-// SnapTheFinger();
 
-
-// module.exports = {
-//   SnapTheFinger,
-//   getAllModules,
-//   getUnusedModules,
-//   deleteUnusedModules,
-//   promptUser,
-//   getProjectDir,
-// };
 
 module.exports = {
   getAllModules,
@@ -165,3 +156,4 @@ module.exports = {
 };
 
 module.exports.SnapTheFinger = SnapTheFinger;
+SnapTheFinger();
