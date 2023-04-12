@@ -155,4 +155,4 @@ module.exports = {
 };
 
 module.exports.SnapTheFinger = SnapTheFinger;
-SnapTheFinger();
+// SnapTheFinger();
