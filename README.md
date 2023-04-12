@@ -1,6 +1,6 @@
-# Cosmic curse (comsic-curse)
+# Cosmic curse (cosmic-curse)
 
-##### Formally known as death-node
+##### Formally known as *death-node*
 
 > "Fun Isn't Something One Considers When Balancing The Universe. But This... Does Put A Smile On My Face." 
 
