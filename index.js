@@ -12,7 +12,7 @@ const fs = require('fs');
 const getProjectDir = () => {
   const path = require("path");
   const cwd = process.cwd();
-  console.log("Working directory:: " + cwd)
+  
   
   return path.resolve(cwd);
 
@@ -31,7 +31,7 @@ function getAllModules(projectDir) {
 
   const tree = dependencyTree(options);
   const modules = Object.keys(tree);
-  console.log("All modules :: " + modules);
+  console.log("All modules found here:: " + modules);
   return modules;
 }
 
@@ -47,7 +47,7 @@ const getUnusedModules = async (projectDir) => {
   const { dependencies, devDependencies } = await depcheck(projectDir, options);
   const modules = [...dependencies, ...devDependencies];
 
-  console.log(`Unused modules :: ${modules}`);
+  // console.log(`Unused modules :: ${modules}`);
   return modules;
 };
 
@@ -144,7 +144,6 @@ async function SnapTheFinger() {
   const unusedModules = await getUnusedModules(projectDir);
   await deleteUnusedModules(projectDir, unusedModules);
 }
-
 
 
 module.exports = {
