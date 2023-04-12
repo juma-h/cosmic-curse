@@ -28,5 +28,7 @@
   },
   "devDependencies": {
     "depcheck": "^1.4.3"
-  }
+  },
+  "readme": "README.md"
 }
+
