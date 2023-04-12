@@ -21,7 +21,7 @@ npm install cosmic-curse
 First thing is to install depcheck. [is is a required dependency]. 
 You can try installing the depcheck module in your project using npm by running the command : 
 > npm install depcheck
-in the project directory.
+
 
 To use cosmic-curse, you need to call the SnapTheFinger function in your Node.js code. Here's an example of how to use cosmic-curse in a Node.js script:
 
