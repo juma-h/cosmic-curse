@@ -19,7 +19,12 @@ npm install cosmic-curse
 
 ## Usage
 
-First thing is to install depcheck. [it is a required dependency]. 
+First thing is to install depcheck. [it is a required dependency].
+
+**<font color="red">⚠️ Warning:</font> Please if you see depcheck listed among unused dependencies, retain , or you will kill my baby**
+
+I will fix this.
+
 You can try installing the depcheck module in your project using npm by running the command : 
 
 > npm install depcheck
@@ -43,6 +48,7 @@ myModule.SnapTheFinger();
 
 
 This will list all the installed packages in the current project directory, identify the unused packages, and prompt the user to confirm whether they want to remove all unused packages or keep some of them. The function will then remove the selected packages.
+
 
 
 # Project Release Notes 

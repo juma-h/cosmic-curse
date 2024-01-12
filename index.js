@@ -284,7 +284,34 @@ module.exports = {
   deleteUnusedModules,
   promptUser,
   getProjectDir,
+  SnapTheFinger, // Export the function without invoking it
 };
 
-module.exports.SnapTheFinger = SnapTheFinger;
-SnapTheFinger();
+// Check if the script is executed directly
+if (require.main === module) {
+  // If it is, then execute the function
+  SnapTheFinger();
+}
+
+// async function SnapTheFinger() {
+//   // The second arg
+//   const projectDir = getProjectDir();
+//   if (!projectDir) {
+//     console.error("\x1b[31mError: Project directory not found.\x1b[0m");
+//     return;
+//   }
+//   const allModules = getAllModules(projectDir);
+//   const unusedModules = await getUnusedModules(projectDir);
+//   await deleteUnusedModules(projectDir, unusedModules);
+// }
+
+// module.exports = {
+//   getAllModules,
+//   getUnusedModules,
+//   deleteUnusedModules,
+//   promptUser,
+//   getProjectDir,
+// };
+
+// module.exports.SnapTheFinger = SnapTheFinger;
+// SnapTheFinger();
