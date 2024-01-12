@@ -74,11 +74,12 @@ This will list all the installed packages in the current project directory, iden
 
 
 # Images so you can see what to expect
-This is because I have types do much so see a VISUAL!
+This is because I have typed so much so see the VISUALS!
 
+pic 1: This is the result if you do this correctly
 ![This is the result if you do this correctly](./images/cosmic2.PNG)
 
-
+pic 2: This is the result if you do not
 ![This is the result if you do not](./images/cosmoc1.PNG)
 
 
