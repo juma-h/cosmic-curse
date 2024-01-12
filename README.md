@@ -45,25 +45,9 @@ myModule.SnapTheFinger();
 This will list all the installed packages in the current project directory, identify the unused packages, and prompt the user to confirm whether they want to remove all unused packages or keep some of them. The function will then remove the selected packages.
 
 
+# Project Release Notes 
 
-## v1.0.9 Improvements
-- The promptUser function improved by validating the user's input. The function should ensure that the user only enters valid module names separated by commas.
-
-- The deleteUnusedModules function improved by adding error handling for the rimraf package. If a module cannot be deleted, the function should log an error message and continue deleting the other modules.
-
-- The main function  improved by adding error handling for the depcheck package. If an error occurs, the function should log an error message and exit.
-
-- You no longer need to specify your directory , the package will determine for itself.
-
-- Implemented correct deletion of dependencies. 
-
-- Fixed duplication of prompts
-
-
-> "Perfectly Balanced, As All Things Should Be."
-
-
-# Project Release Notes - Version 2.0.0
+##  Version 2.0.0 , (2024)
 ## New Features
 
 ### 1. Improved Exit Conditions
@@ -88,6 +72,32 @@ This will list all the installed packages in the current project directory, iden
 ### 6. Console Colors for Better Readability
 - Colored text is used in the console for improved readability and to distinguish different types of messages.
 
+
+# Images so you can see what to expect
+This is because I have types do much so see a VISUAL!
+
+![This is the result if you do this correctly](../../images/cosmic-curse.PNG)
+
+![This is the result if you do not](../../images/cosmoc1.PNG)
+
+
+
+## v1.0.9 Improvements, (2023)
+
+- The promptUser function improved by validating the user's input. The function should ensure that the user only enters valid module names separated by commas.
+
+- The deleteUnusedModules function improved by adding error handling for the rimraf package. If a module cannot be deleted, the function should log an error message and continue deleting the other modules.
+
+- The main function  improved by adding error handling for the depcheck package. If an error occurs, the function should log an error message and exit.
+
+- You no longer need to specify your directory , the package will determine for itself.
+
+- Implemented correct deletion of dependencies. 
+
+- Fixed duplication of prompts
+
+
+> "Perfectly Balanced, As All Things Should Be."
 
 
 
