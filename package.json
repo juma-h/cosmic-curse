@@ -1,6 +1,6 @@
 {
   "name": "cosmic-curse",
-  "version": "1.0.10",
+  "version": "2.0.0",
   "description": "Package that deletes unused modules after project is done",
   "main": "index.js",
   "scripts": {

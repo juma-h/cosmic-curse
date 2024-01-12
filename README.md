@@ -46,7 +46,7 @@ This will list all the installed packages in the current project directory, iden
 
 
 
-## Improvements
+## v1.0.9 Improvements
 - The promptUser function improved by validating the user's input. The function should ensure that the user only enters valid module names separated by commas.
 
 - The deleteUnusedModules function improved by adding error handling for the rimraf package. If a module cannot be deleted, the function should log an error message and continue deleting the other modules.
@@ -61,6 +61,35 @@ This will list all the installed packages in the current project directory, iden
 
 
 > "Perfectly Balanced, As All Things Should Be."
+
+
+# Project Release Notes - Version 2.0.0
+## New Features
+
+### 1. Improved Exit Conditions
+- **If No Modules in Project:**
+  - The application will now exit if there are no installed modules in the project.
+
+- **If No Unused Modules:**
+  - The application will exit if there are installed modules, but no unused modules detected.
+
+### 2. List of Modules in Tree Form
+- Unused modules are now displayed in a tree format for better readability.
+
+### 3. Editable Retained Modules
+- If an incorrect module name is provided when choosing which modules to retain, the user is prompted to edit the input.
+
+### 4. Progress Animation during Uninstallation
+- A progress bar or animation is displayed during the uninstallation process to indicate the progress of module removal.
+
+### 5. Improved Prompt Handling
+- If an incorrect answer is provided in the prompt:  [Do you want to retain any modules? (yes/no/all)] (e.g., an invalid option), the application now exits instead of deleting all listed modules.
+
+### 6. Console Colors for Better Readability
+- Colored text is used in the console for improved readability and to distinguish different types of messages.
+
+
+
 
 ## Contributing
 If you want to contribute to the cosmic-curse project, you can fork the repository on GitHub and submit a pull request with your changes. Please make sure to follow the coding style and guidelines of the project.
